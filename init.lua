@@ -1,3 +1,4 @@
+
 vim.g.maplocalleader = "\\"
 
 -- Bootstrap lazy.nvim
@@ -37,6 +38,16 @@ require("lazy").setup({
           indent = { enable = true },
         })
       end
+    },
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+        -- "3rd/image.nvim", -- Optional image support in preview window
+      }
     }
   },
   install = { colorscheme = { "catppuccin" } },
@@ -51,11 +62,14 @@ local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
+vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal right<CR>')
+vim.keymap.set('n', '<C-m>', ':Neotree close<CR>')
+
 -- Basic Neovim options
 vim.opt.number = true           -- Show line numbers
 vim.opt.relativenumber = true   -- Show relative line numbers
 vim.opt.hlsearch = true         -- Highlight search results
-vim.opt.incsearch = true        -- Show search results as you type
+vim.opt.incsearch = true        -- Show search results as you type:
 vim.opt.expandtab = true        -- Use spaces instead of tabs
 vim.opt.shiftwidth = 4          -- Number of spaces for each indentation
 vim.opt.tabstop = 4             -- Number of spaces per tab
@@ -63,3 +77,4 @@ vim.opt.smartindent = true      -- Auto-indent new lines
 vim.opt.wrap = false            -- Disable line wrapping
 vim.opt.swapfile = false        -- Disable swapfile
 vim.opt.backup = false          -- Disable backup file
+
