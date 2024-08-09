@@ -18,9 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup('plugins') -- Ensure 'plugins' matches your plugins file name
 
--- Apply the colorscheme
-vim.cmd.colorscheme("catppuccin")
-
 -- Set up Telescope keymap
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
