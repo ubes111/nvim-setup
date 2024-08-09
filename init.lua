@@ -1,5 +1,4 @@
 
-vim.g.maplocalleader = "\\"
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -19,40 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {
-      'nvim-telescope/telescope.nvim', tag = '0.1.8',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-    },
-    {
-      "nvim-treesitter/nvim-treesitter",
-      build = ":TSUpdate",
-      config = function()
-        local configs = require("nvim-treesitter.configs")
-        configs.setup({
-          ensure_installed = { "python", "lua", "vim", "vimdoc", "query"},
-          sync_install = false,
-          highlight = { enable = true },
-          indent = { enable = true },
-        })
-      end
-    },
-    {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
-        -- "3rd/image.nvim", -- Optional image support in preview window
-      }
-    }
-  },
-  install = { colorscheme = { "catppuccin" } },
-  checker = { enabled = true },
-})
+require("lazy").setup('plugins') -- Ensure 'plugins' matches your plugins file name
 
 -- Apply the colorscheme
 vim.cmd.colorscheme("catppuccin")
@@ -62,6 +28,7 @@ local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
+-- Configure Neo-tree keymaps
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal right<CR>')
 vim.keymap.set('n', '<C-m>', ':Neotree close<CR>')
 
@@ -69,7 +36,7 @@ vim.keymap.set('n', '<C-m>', ':Neotree close<CR>')
 vim.opt.number = true           -- Show line numbers
 vim.opt.relativenumber = true   -- Show relative line numbers
 vim.opt.hlsearch = true         -- Highlight search results
-vim.opt.incsearch = true        -- Show search results as you type:
+vim.opt.incsearch = true        -- Show search results as you type
 vim.opt.expandtab = true        -- Use spaces instead of tabs
 vim.opt.shiftwidth = 4          -- Number of spaces for each indentation
 vim.opt.tabstop = 4             -- Number of spaces per tab
