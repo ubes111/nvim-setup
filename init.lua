@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -17,11 +19,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup('plugins') -- Ensure 'plugins' matches your plugins file name
-
--- Set up Telescope keymap
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
 -- Configure Neo-tree keymaps
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal right<CR>')
