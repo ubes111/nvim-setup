@@ -20,10 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup('plugins') -- Ensure 'plugins' matches your plugins file name
 
--- Configure Neo-tree keymaps
-vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal right<CR>')
-vim.keymap.set('n', '<C-m>', ':Neotree close<CR>')
-
 -- Basic Neovim options
 vim.opt.number = true           -- Show line numbers
 vim.opt.relativenumber = true   -- Show relative line numbers
