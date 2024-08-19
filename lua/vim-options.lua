@@ -12,6 +12,7 @@ vim.opt.smartindent = true -- Auto-indent new lines
 vim.opt.wrap = false -- Disable line wrapping
 vim.opt.swapfile = false -- Disable swapfile
 vim.opt.backup = false -- Disable backup file
+vim.opt.mouse = ''
 
 
 -- Primes opts
