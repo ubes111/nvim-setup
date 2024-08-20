@@ -1,3 +1,4 @@
+--- TODO: add keymaps to manipulate buffers
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
@@ -5,6 +6,7 @@ return {
 			options = {
 				theme = "dracula",
 			},
+            sections = { lualine_a = { 'buffers' } }
 		})
 	end,
 }

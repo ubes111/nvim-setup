@@ -12,9 +12,9 @@ vim.opt.smartindent = true -- Auto-indent new lines
 vim.opt.wrap = false -- Disable line wrapping
 vim.opt.swapfile = false -- Disable swapfile
 vim.opt.backup = false -- Disable backup file
+vim.opt.mouse = ''
 
 
 -- Primes opts
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-
