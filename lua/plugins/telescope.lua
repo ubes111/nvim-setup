@@ -19,6 +19,11 @@ return {
                         },
                     },
                 },
+                pickers = {
+                    find_files = {
+                        find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
+                    }
+                }
             })
             vim.keymap.set("n", "<C-p>", builtin.find_files, { noremap = true, silent = true })
             vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
