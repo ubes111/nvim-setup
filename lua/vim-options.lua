@@ -19,3 +19,8 @@ vim.opt.mouse = ''
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 
+-- Buffer Management Keybindings
+vim.keymap.set('n', '<leader>l', ':bnext<CR>', { desc = 'Next Buffer' })
+vim.keymap.set('n', '<leader>h', ':bprevious<CR>', { desc = 'Previous Buffer' })
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Delete Buffer' })
+vim.keymap.set('n', '<leader>bl', ':ls<CR>', { desc = 'List Buffers' })
