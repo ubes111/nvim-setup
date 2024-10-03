@@ -2,14 +2,22 @@ return {
   "folke/noice.nvim",
   event = "VeryLazy",
   opts = {
-    -- add any options here
+    -- add any Noice options here if needed
   },
   dependencies = {
-    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
     "MunifTanjim/nui.nvim",
-    -- OPTIONAL:
-    --   `nvim-notify` is only needed, if you want to use the notification view.
-    --   If not available, we use `mini` as the fallback
     "rcarriga/nvim-notify",
-    }
+  },
+  config = function(_, opts)
+    -- Setup for Noice
+    require("noice").setup(opts)
+
+    -- Setup for nvim-notify, only setting background_colour to avoid transparency issue
+    require('notify').setup({
+      background_colour = "#000000"  -- Set background color to fix transparency issue
+    })
+
+    -- Route Noice notifications to nvim-notify
+    vim.notify = require("notify")
+  end,
 }
