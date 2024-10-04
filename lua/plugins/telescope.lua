@@ -7,7 +7,13 @@ return {
             require("telescope").setup({
                 pickers = {
                     find_files = {
-                        find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
+                        find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
+                    },
+                    -- Adjust layout specifically for the 'registers' picker
+                    registers = {
+                        layout_config = {
+                            width = 0.4 -- Adjust width to 40% of the editor window
+                        },
                     },
                 },
             })
