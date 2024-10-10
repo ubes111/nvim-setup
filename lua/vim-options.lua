@@ -1,3 +1,11 @@
+-- Disable arrow keys in all modes
+for _, mode in pairs({ 'n', 'i', 'v', 'x' }) do
+    for _, key in pairs({ '<Up>', '<Down>', '<Left>', '<Right>' }) do
+        vim.keymap.set(mode, key, '<nop>', { noremap = true, silent = true })
+    end
+end
+
+-- Set leader key
 vim.g.mapleader = " "
 
 -- Basic Neovim options
@@ -12,15 +20,14 @@ vim.opt.smartindent = true -- Auto-indent new lines
 vim.opt.wrap = false -- Disable line wrapping
 vim.opt.swapfile = false -- Disable swapfile
 vim.opt.backup = false -- Disable backup file
-vim.opt.mouse = ''
+vim.opt.mouse = '' -- Disable mouse support
 
-
--- Primes opts
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+-- Prime's visual mode movement options
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
 -- Buffer Management Keybindings
-vim.keymap.set('n', '<leader>l', ':bnext<CR>', { desc = 'Next Buffer' })
-vim.keymap.set('n', '<leader>h', ':bprevious<CR>', { desc = 'Previous Buffer' })
-vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Delete Buffer' })
-vim.keymap.set('n', '<leader>bl', ':ls<CR>', { desc = 'List Buffers' })
+vim.keymap.set('n', '<leader>l', ':bnext<CR>', { noremap = true, desc = 'Next Buffer' })
+vim.keymap.set('n', '<leader>h', ':bprevious<CR>', { noremap = true, desc = 'Previous Buffer' })
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, desc = 'Delete Buffer' })
+vim.keymap.set('n', '<leader>bl', ':ls<CR>', { noremap = true, desc = 'List Buffers' })
